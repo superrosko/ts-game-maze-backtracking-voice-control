@@ -1,0 +1,48 @@
+{
+  "name": "ts-game-maze-voice-control",
+  "version": "0.6.0",
+  "description": "An example of a maze game with voice control support",
+  "main": "./scr/main.ts",
+  "scripts": {
+    "build:dev": "gulp build && webpack --mode=development",
+    "build:prod": "gulp build && webpack --mode=production",
+    "test": "gulp tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superrosko/ts-game-maze-voice-control.git"
+  },
+  "keywords": [
+    "maze",
+    "backtracking",
+    "typescript",
+    "voice",
+    "speech",
+    "recognition"
+  ],
+  "author": "Dmitriy Bespalov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superrosko/ts-game-maze-voice-control/issues"
+  },
+  "homepage": "https://github.com/superrosko/ts-game-maze-voice-control#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.4.0",
+    "eslint-config-google": "^0.14.0",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "ts-loader": "^8.0.0",
+    "typescript": "^3.9.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}
