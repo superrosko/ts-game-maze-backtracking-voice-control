@@ -9,6 +9,7 @@
     "ecmaVersion": 8,
     "sourceType": "module"
   },
+  "ignorePatterns": ["dist/**/*"],
   "extends": [
     "eslint:recommended",
     "google"
