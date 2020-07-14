@@ -126,6 +126,7 @@ class BacktrackingGenerator extends Maze {
             (type: number) => {
               return type !== Maze.MAZE_WALL &&
               type !== Maze.MAZE_PATH &&
+              type !== Maze.MAZE_WAY &&
               type !== BacktrackingGenerator.MAZE_POINT_VISITED;
             });
 

@@ -10,6 +10,7 @@ class CanvasRenderer {
   private readonly pointSize: number;
   private readonly colorBorder: string;
   private readonly colorPath: string;
+  private readonly colorWay: string;
   private readonly colorStartPoint: string;
   private readonly colorEndPoint: string;
   private readonly colorCurrentPoint: string;
@@ -21,6 +22,7 @@ class CanvasRenderer {
    * @param {number} pointSize
    * @param {string} colorBorder
    * @param {string} colorPath
+   * @param {string} colorWay
    * @param {string} colorStartPoint
    * @param {string} colorEndPoint
    * @param {string} colorCurrentPoint
@@ -29,6 +31,7 @@ class CanvasRenderer {
       pointSize: number,
       colorBorder = '#032B43',
       colorPath = '#3F88C5',
+      colorWay = '#F19953',
       colorStartPoint = '#136F63',
       colorEndPoint = '#FFBA08',
       colorCurrentPoint = '#D00000',
@@ -36,6 +39,7 @@ class CanvasRenderer {
     this.pointSize = pointSize;
     this.colorBorder = colorBorder;
     this.colorPath = colorPath;
+    this.colorWay = colorWay;
     this.colorStartPoint = colorStartPoint;
     this.colorEndPoint = colorEndPoint;
     this.colorCurrentPoint = colorCurrentPoint;
@@ -68,6 +72,8 @@ class CanvasRenderer {
             ctx.fillStyle = this.colorEndPoint;
           } else if (type === Maze.MAZE_PATH) {
             ctx.fillStyle = this.colorPath;
+          } else if (type === Maze.MAZE_WAY) {
+            ctx.fillStyle = this.colorWay;
           }
           if (type !== Maze.MAZE_WALL) {
             ctx.fillRect(this.pointSize * x, this.pointSize * y,

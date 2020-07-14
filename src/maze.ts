@@ -7,6 +7,7 @@ class Maze {
   static readonly MAZE_EMPTY = 0;
   static readonly MAZE_WALL = 1;
   static readonly MAZE_PATH = 2;
+  static readonly MAZE_WAY = 3;
 
   protected width!: number;
   protected height!: number;
@@ -208,10 +209,11 @@ class Maze {
    */
   public move(step: () => boolean): void {
     while (step()) {
+      this.setFieldPointType(this.getCurrentPoint(), Maze.MAZE_WAY);
       const neighbourPoints =
         this.getNeighboursPoints(this.getCurrentPoint(), 1,
             (type) => {
-              return type === Maze.MAZE_PATH;
+              return type === Maze.MAZE_PATH || type === Maze.MAZE_WAY;
             });
       if (neighbourPoints.length > 2) {
         break;

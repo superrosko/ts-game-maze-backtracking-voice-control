@@ -8,6 +8,7 @@ class TextRenderer {
   private maze: Maze
   private readonly symbolBorder: string;
   private readonly symbolPath: string;
+  private readonly symbolWay: string;
   private readonly symbolStart: string;
   private readonly symbolEnd: string;
   private readonly symbolCurrent: string;
@@ -17,6 +18,7 @@ class TextRenderer {
    * @param {Maze} maze
    * @param {string} symbolBorder
    * @param {string} symbolPath
+   * @param {string} symbolWay
    * @param {string} symbolStart
    * @param {string} symbolEnd
    * @param {string} symbolCurrent
@@ -24,12 +26,14 @@ class TextRenderer {
   constructor(maze: Maze,
       symbolBorder = '#',
       symbolPath = ' ',
+      symbolWay = '*',
       symbolStart = 'O',
       symbolEnd = 'X',
       symbolCurrent = '@') {
     this.maze = maze;
     this.symbolBorder = symbolBorder;
     this.symbolPath = symbolPath;
+    this.symbolWay = symbolWay;
     this.symbolStart = symbolStart;
     this.symbolEnd = symbolEnd;
     this.symbolCurrent = symbolCurrent;
@@ -56,6 +60,8 @@ class TextRenderer {
           screen += this.symbolBorder;
         } else if (type === Maze.MAZE_PATH) {
           screen += this.symbolPath;
+        } else if (type === Maze.MAZE_WAY) {
+          screen += this.symbolWay;
         }
       }
       screen += '\n';
