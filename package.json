@@ -1,8 +1,8 @@
 {
   "name": "ts-game-maze-voice-control",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "An example of a maze game with voice control support",
-  "main": "./scr/main.ts",
+  "main": "./dist/maze.js",
   "scripts": {
     "build:dev": "gulp build && webpack --mode=development",
     "build:prod": "gulp build && webpack --mode=production",
