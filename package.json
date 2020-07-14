@@ -1,6 +1,6 @@
 {
   "name": "ts-game-maze-voice-control",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "An example of a maze game with voice control support",
   "main": "./dist/maze.js",
   "scripts": {
