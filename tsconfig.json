@@ -1,0 +1,19 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/web-bundle.ts"
+  ],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist/",
+    "strict": true,
+    "noImplicitAny": true
+  }
+}
