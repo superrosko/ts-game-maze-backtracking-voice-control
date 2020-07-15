@@ -11,6 +11,14 @@ An example of a maze game with voice control support.
 
 Demo: https://pages.rdevelab.ru/ts-game-maze-voice-control/index.html.
 
+## Installation
+
+Install the latest version with
+
+```console
+$ npm i ts-game-maze-voice-control
+```
+
 ## Credits
 
 - [Dmitriy Bespalov][link-author]
