@@ -5,6 +5,12 @@
 [![GitHub code size in bytes][ico-github-size]][link-github]
 [![GitHub top language][ico-github-top-language]][link-github]
 
+## Introduction
+
+An example of a maze game with voice control support.
+
+Demo: https://pages.rdevelab.ru/ts-game-maze-voice-control/index.html.
+
 ## Credits
 
 - [Dmitriy Bespalov][link-author]
