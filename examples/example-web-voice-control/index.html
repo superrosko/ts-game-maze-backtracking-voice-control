@@ -5,63 +5,7 @@
     <title>TypeScript Game Maze with speech recognition!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            margin: 0;
-        }
-
-        .row {
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .controls {
-            display: flex;
-            text-align: center;
-            height: 20px;
-            padding: 0.5rem 0;
-            font-family: monospace;
-            justify-content: space-around;
-        }
-
-        .controls button {
-            cursor: pointer;
-            flex-grow: 1;
-            margin: 0 5px;
-            width: 60px;
-        }
-
-        .message {
-            text-align: center;
-            height: 20px;
-            padding: 0.5rem;
-            font-family: monospace;
-        }
-
-        .rules {
-            text-align: center;
-            height: 20px;
-            padding: 0.5rem;
-            font-family: monospace;
-        }
-        .rules .start {
-            color: #136F63;
-        }
-        .rules .end {
-            color: #FFBA08;
-        }
-        .rules .current {
-            color: #D00000;
-        }
-
-        canvas {
-            max-width: 340px;
-            max-height: 340px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -75,7 +19,7 @@
         <div class="controls">
             <button class="restart">restart <code>(space)</code></button>
         </div>
-            <div class="controls">
+        <div class="controls">
             <button class="up">up <code>(↑)</code></button>
             <button class="down">down <code>(↓)</code></button>
             <button class="left">left <code>(←)</code></button>
@@ -86,113 +30,7 @@
     </div>
 </div>
 <script src="web-bundle.js"></script>
-<script>
-    const game = document.getElementById('game_maze');
-    const restart = game.querySelector('.restart');
-    const up = game.querySelector('.up');
-    const down = game.querySelector('.down');
-    const left = game.querySelector('.left');
-    const right = game.querySelector('.right');
-    const message = game.querySelector('.message');
-
-    render = function() {
-        window.mazeCanvasRender.render();
-        if (window.mazeBacktrackingGenerator.isEndPoint(window.mazeBacktrackingGenerator.getCurrentPoint())) {
-            message.innerHTML = 'You win!';
-        } else {
-            message.innerHTML = '';
-        }
-    };
-
-    callAction = function(action) {
-        switch (action) {
-            case 'up':
-            case 'ArrowUp':
-                window.mazeBacktrackingGenerator.moveUp();
-                break;
-            case 'down':
-            case 'ArrowDown':
-                window.mazeBacktrackingGenerator.moveDown();
-                break;
-            case 'left':
-            case 'ArrowLeft':
-                window.mazeBacktrackingGenerator.moveLeft();
-                break;
-            case 'right':
-            case 'ArrowRight':
-                window.mazeBacktrackingGenerator.moveRight();
-                break;
-            case 'restart':
-            case 'Space':
-                window.mazeBacktrackingGenerator.reInit(41, 41);
-                break;
-        }
-        render();
-    };
-
-    voiceControl = function() {
-        const actions = ['restart', 'up', 'down', 'left', 'right'];
-        const grammar = '#JSGF V1.0; grammar phrase; public <actions> = ' + actions + ';';
-        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        window.SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
-
-        const recognition = new SpeechRecognition();
-
-        const speechRecognitionList = new SpeechGrammarList();
-        speechRecognitionList.addFromString(grammar, 1);
-        recognition.grammars = speechRecognitionList;
-        recognition.continuous = false;
-        recognition.lang = 'en-US';
-        recognition.interimResults = false;
-        recognition.maxAlternatives = 1;
-
-        recognition.addEventListener('end', () => {
-            recognition.start();
-        });
-
-        recognition.addEventListener('result', e => {
-            const action = Array.from(e.results).map(result => result[0].transcript.toLowerCase())[0];
-            if (actions.indexOf(action) !== -1) {
-                callAction(action);
-            } else {
-                message.innerHTML = 'Say again!';
-            }
-        });
-
-        recognition.start();
-    };
-
-    init = function() {
-        const isSupported = window.SpeechRecognition != null || window.webkitSpeechRecognition != null;
-        if (!isSupported) {
-            message.innerHTML = 'SpeechRecognition API not supported';
-        } else {
-            voiceControl();
-        }
-        render();
-    };
-
-    init();
-
-    document.addEventListener('keydown', function(event) {
-        callAction(event.code);
-    });
-    restart.addEventListener('click', function() {
-        callAction('restart');
-    });
-    up.addEventListener('click', function() {
-        callAction('up');
-    });
-    down.addEventListener('click', function() {
-        callAction('down');
-    });
-    left.addEventListener('click', function() {
-        callAction('left');
-    });
-    right.addEventListener('click', function() {
-        callAction('right');
-    });
-</script>
+<script src="game.js"></script>
 </body>
 
 </html>

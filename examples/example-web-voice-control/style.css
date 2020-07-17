@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+}
+
+.row {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    text-align: center;
+    height: 20px;
+    padding: 0.5rem 0;
+    font-family: monospace;
+    justify-content: space-around;
+}
+
+.controls button {
+    cursor: pointer;
+    flex-grow: 1;
+    margin: 0 5px;
+    width: 60px;
+}
+
+@media screen and (max-width: 540px) {
+    .controls button code {
+        display: none;
+    }
+}
+
+.message {
+    text-align: center;
+    height: 20px;
+    padding: 0.5rem;
+    font-family: monospace;
+}
+
+.rules {
+    text-align: center;
+    height: 20px;
+    padding: 0.5rem;
+    font-family: monospace;
+}
+
+.rules .start {
+    color: #136F63;
+}
+
+.rules .end {
+    color: #FFBA08;
+}
+
+.rules .current {
+    color: #D00000;
+}
+
+canvas {
+    max-width: 340px;
+    max-height: 340px;
+}
