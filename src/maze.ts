@@ -128,7 +128,7 @@ class Maze {
    */
   public setEndPoint(point: Point): boolean {
     const type = this.getFieldPointType(point);
-    if (type != Maze.MAZE_WALL) {
+    if (type !== Maze.MAZE_WALL) {
       this.endPoint = point;
       return true;
     }
@@ -159,7 +159,7 @@ class Maze {
    */
   public setCurrentPoint(point: Point): boolean {
     const type = this.getFieldPointType(point);
-    if (type != Maze.MAZE_WALL) {
+    if (type !== Maze.MAZE_WALL) {
       this.currentPoint = point;
       return true;
     }
